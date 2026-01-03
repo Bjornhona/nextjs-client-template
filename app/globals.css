@@ -1,0 +1,151 @@
+@import "tailwindcss";
+
+@import "../styles/colors.module.scss";
+@import "../styles/spacing.module.scss";
+@import "../styles/typography.module.scss";
+
+/* Tailwind → CSS variable bridge */
+@theme inline {
+  --color-background: var(--surface-bg);
+  --color-foreground: var(--surface-text);
+
+  --color-soft: var(--bg-soft);
+
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+
+  --color-secondary: var(--secondary);
+  --color-secondary-hover: var(--secondary-hover);
+
+  --color-gray-black: var(--gray-black);
+  --color-gray-dark: var(--gray-dark);
+  --color-gray-medium: var(--gray-medium);
+  --color-gray-light: var(--gray-light);
+
+  --color-gradient-soft: var(--bg-gradient-soft);
+  --color-gradient-radial: var(--bg-gradient-radial);
+  --color-gradient-layered: var(--bg-gradient-layered);
+}
+
+/* Element defaults */
+body {
+  background: var(--surface-bg);
+  color: var(--surface-text);
+  font-family: var(--font-raleway);
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--surface-text);
+}
+
+h1 {
+  font-size: var(--text-5xl);
+  line-height: var(--leading-tight);
+  font-weight: 800;
+}
+
+h2 {
+  font-size: var(--text-4xl);
+  line-height: var(--leading-tight);
+  font-weight: 600;
+}
+
+h3 {
+  font-size: var(--text-2xl);
+  font-weight: 600;
+}
+
+h4 {
+  font-size: var(--text-xl);
+  line-height: var(--leading-tight);
+  font-weight: 600;
+}
+
+h5 {
+  font-size: var(--text-sm);
+  line-height: var(--leading-tight);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+p, li {
+  font-size: var(--text-sm);
+  line-height: var(--leading-relaxed);
+  color: var(--surface-text-medium);
+}
+
+blockquote {
+  font-size: var(--text-md);
+  line-height: var(--leading-relaxed);
+  font-style: italic;
+  color: var(--surface-text-dark);
+  letter-spacing: 0.01em;
+}
+
+a {
+  font-size: var(--text-sm);
+  line-height: var(--leading-relaxed);
+}
+
+label {
+  font-size: var(--text-sm);
+  font-weight: 600;
+}
+
+.btn-primary {
+  color: var(--color-primary);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  color: var(--color-primary-hover);
+}
+
+.btn-secondary {
+  color: var(--color-secondary);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-secondary:hover {
+  color: var(--color-secondary-hover);
+}
+
+.action-primary {
+  background-color: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
+  transition:
+    background-color 0.2s ease,
+    opacity 0.2s ease;
+  padding: 10px 20px;
+  border-radius: 3px;
+  border: none;
+  cursor: pointer;
+}
+
+.action-primary:hover {
+  background-color: var(--btn-primary-hover);
+  color: var(--btn-primary-text);
+}
+
+.btn-primary:active,
+.btn-secondary:active,
+.action-primary:active {
+  transform: translateY(1px);
+}
+
+.prose {
+  color: var(--surface-text);
+}
+
+.prose h2 {
+  margin-top: 2.5rem;
+}
+
+.prose p {
+  margin-bottom: 1.25rem;
+}

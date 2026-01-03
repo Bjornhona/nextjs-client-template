@@ -1,0 +1,62 @@
+:root {
+  /* Brand */
+  --primary: #52b5e7;
+  --primary-hover: #a3d4f7;
+  --secondary: #8d288f;
+  --secondary-hover: #b55fb2;
+
+  /* Neutrals */
+  --gray-black: #222221;
+  --gray-dark: #333437;
+  --gray-medium: #737373;
+  --gray-light: #e0e0e0;
+  --gray-soft: #f7f7f8;
+  --background: #ffffff;
+
+  /* UI semantics — LIGHT */
+  --bg-soft: var(--gray-soft);
+
+  --surface-bg: var(--background);
+  --surface-text: var(--gray-dark);
+  --surface-text-medium: var(--gray-medium);
+
+  --nav-text: var(--gray-medium);
+  --nav-text-hover: var(--gray-black);
+
+  --btn-primary-bg: var(--secondary);
+  --btn-primary-hover: var(--secondary-hover);
+  --btn-primary-text: #ffffff;
+
+  --bg-gradient-soft: linear-gradient(
+    135deg,
+    rgba(82, 181, 231, 0.12) 0%,
+    rgba(141, 40, 143, 0.08) 100%
+  );
+
+  --bg-gradient-radial: radial-gradient(
+    circle at top left,
+    rgba(82, 181, 231, 0.14),
+    transparent 60%
+  );
+
+  --bg-gradient-layered:
+    radial-gradient(
+      circle at top left,
+      rgba(82, 181, 231, 0.22),
+      transparent 60%
+    ),
+    linear-gradient(
+      135deg,
+      rgba(82, 181, 231, 0.12),
+      rgba(141, 40, 143, 0.12)
+    );
+}
+
+[data-theme='dark'] {
+  --surface-bg: var(--gray-black);
+  --surface-text: #ffffff;
+  --surface-text-medium: var(--gray-light);
+
+  --nav-text: var(--gray-light);
+  --nav-text-hover: #ffffff;
+}
