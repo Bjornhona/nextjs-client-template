@@ -1,5 +1,7 @@
 import { client } from './lib/client'
 import { groq } from 'next-sanity'
+import { urlFor } from './lib/image'
+import { unstable_cache } from 'next/cache'
 
 export const pageQuery = groq`
 *[_type == "page" && slug.current == $slug][0]{
@@ -107,6 +109,7 @@ export const settingsQuery = groq`
   instagramUrl,
   logo,
   iconLogo,
+  favicon,
   enableAnalytics,
   gaMeasurementId,
   defaultOgImage
@@ -179,3 +182,15 @@ export const jobOfferBySlugQuery = groq`
 export const getJobOfferBySlug = async (slug: string) => {
   return client.fetch(jobOfferBySlugQuery, { slug })
 }
+
+export const getFavicon = unstable_cache(
+  async () => {
+    const settings = await getSettings()
+    const faviconUrl = settings?.favicon
+      ? urlFor(settings.favicon).width(32).height(32).url()
+      : '/favicon.ico'
+    return faviconUrl
+  },
+  ['site-favicon'],
+  { revalidate: 60 }
+)

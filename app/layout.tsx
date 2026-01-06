@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import {
   Raleway,
   // Oswald,
@@ -28,6 +27,7 @@ import ClientOnly from "@/components/ClientOnly";
 import Script from "next/script";
 import { cookies } from "next/headers";
 import { CookieConsentProvider } from "@/lib/CookieConsentContext";
+import { getFavicon } from '@/sanity/queries'
 
 const raleway = Raleway({
   weight: ["400", "500", "600", "700"],
@@ -35,10 +35,17 @@ const raleway = Raleway({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: "Client Template",
-  description: "Next.js Freelance website template",
-};
+export async function generateMetadata() {
+  const faviconUrl = await getFavicon()
+
+  return {
+    title: "Client Template",
+    description: "Next.js Freelance website template",
+    icons: {
+      icon: faviconUrl,
+    },
+  }
+}
 
 export default async function RootLayout({
   children,

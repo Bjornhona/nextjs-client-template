@@ -68,6 +68,15 @@ export const settings = defineType({
       options: { hotspot: true }
     }),
     {
+      name: 'favicon',
+      title: 'Favicon',
+      type: 'image',
+      options: {
+        accept: 'image/png, image/svg+xml',
+      },
+      description: '32x32px or 48x48px recommended (SVG or PNG)',
+    },
+    {
       name: "enableAnalytics",
       title: "Enable Google Analytics",
       type: "boolean",
