@@ -6,7 +6,6 @@ import CTA from "@/components/sections/CTA";
 import Hero from "@/components/sections/hero/Hero";
 import image from "@/components/sections/jobOffers/job-offer-item.jpg";
 import { SectionHero } from "@/types/sections";
-import { PortableTextBlock } from "next-sanity";
 
 export async function generateMetadata({
   params,
@@ -30,19 +29,19 @@ const JobOfferPage = async ({ params }: { params: { slug: string } }) => {
   const heroData: SectionHero = {
     _type: "sectionHero" as const,
     headline: jobOffer.title,
-    subheadline: [{_type: 'block', children: [{_type: 'span', text: jobOffer.excerpt}]}] as PortableTextBlock[],
+    subheadline: [{_type: 'block', children: [{_type: 'span', text: jobOffer.excerpt}]}],
     staticImageSrc: image.src,
   };
   // const ctaData_EN = {
   //   _type: "sectionCTA" as const,
   //   headline: "Interested in this position?",
-  //   text: "Send us your application and we’ll get back to you shortly.",
+  //   text: [{_type: 'block', children: [{_type: 'span', text: 'Send us your application and we’ll get back to you shortly.'}]}],
   //   primaryCta: { label: "Apply now", href: "/contact" },
   // };
   const ctaData_ES = {
     _type: "sectionCTA" as const,
     headline: "¿Te interesa esta oportunidad?",
-    text: "Envíanos tu candidatura y nos pondremos en contacto contigo lo antes posible.",
+    text: [{_type: 'block', children: [{_type: 'span', text: 'Envíanos tu candidatura y nos pondremos en contacto contigo lo antes posible.'}]}],
     primaryCta: { label: "Enviar candidatura", href: "/contact" },
   };
   

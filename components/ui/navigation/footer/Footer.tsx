@@ -6,8 +6,11 @@ import { NavItem } from "@/types/sanity"
 import ContactInfo from "@/components/sections/contact/ContactInfo"
 import { useSettings } from "@/lib/SettingsProvider"
 import SocialMediaNav from "../SocialMediaNav"
+import { useCookieConsentContext } from "@/lib/CookieConsentContext";
 
 const Footer = ({ navigation }: { navigation: NavItem[]}) => {
+  const { openBanner } = useCookieConsentContext();
+
   const settings = useSettings()
   const currentYear = new Date().getFullYear();
 
@@ -15,6 +18,10 @@ const Footer = ({ navigation }: { navigation: NavItem[]}) => {
     { href: "/legal-notice", label: "Aviso Legal" },
     { href: "/privacy-policy", label: "Política de Privacidad" },
     { href: "/cookies-policy", label: "Política de Cookies" },
+    { href: "#", label: "Cookie Settings", onClick: (e?: React.MouseEvent) => {
+      e?.preventDefault();
+      openBanner();
+    }},
   ]
 
   return (

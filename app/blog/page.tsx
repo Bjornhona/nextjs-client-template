@@ -6,7 +6,6 @@ import image from '@/components/sections/blog/cabecera_1.jpg'
 import { Metadata } from "next"
 import { getSettings } from "@/sanity/queries"
 import { SectionBlogPosts, SectionHero, SectionCTA } from "@/types/sections"
-import { PortableTextBlock } from "next-sanity"
 
 export const generateMetadata = async (): Promise<Metadata> => {
   const settings = await getSettings()
@@ -22,7 +21,7 @@ const BlogPage = async () => {
   const heroData: SectionHero = {
     _type: 'sectionHero' as const,
     headline: 'Blog',
-    subheadline: [{_type: 'block', children: [{_type: 'span', text: 'Descubre nuestras últimas noticias y artículos'}]}] as PortableTextBlock[],
+    subheadline: [{_type: 'block', children: [{_type: 'span', text: 'Descubre nuestras últimas noticias y artículos'}]}],
     staticImageSrc: image.src,
   }
 
@@ -36,7 +35,7 @@ const BlogPage = async () => {
   const ctaData: SectionCTA = {
     _type: 'sectionCTA' as const,
     headline: '¿Quieres unirte a nuestro equipo?',
-    text: 'Consulta nuestras oportunidades laborales actuales o ponte en contacto con nosotros.',
+    text: [{_type: 'block', children: [{_type: 'span', text: 'Consulta nuestras oportunidades laborales actuales o ponte en contacto con nosotros.'}]}],
     primaryCta: { label: 'Contactar', href: '/contact' },
   }
 

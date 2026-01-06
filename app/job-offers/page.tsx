@@ -5,7 +5,6 @@ import Hero from "@/components/sections/hero/Hero"
 import jobOffersImage from "@/components/sections/jobOffers/job-offers-image.jpg"
 import CTA from "@/components/sections/CTA"
 import { Metadata } from "next"
-import { PortableTextBlock } from "next-sanity"
 import { SectionHero } from "@/types/sections"
 
 export const generateMetadata = async (): Promise<Metadata> => {
@@ -22,7 +21,7 @@ const JobOffersPage = async () => {
   const heroData: SectionHero = {
     _type: 'sectionHero' as const,
     headline: 'Ofertas de trabajo',
-    subheadline: [{_type: 'block', children: [{_type: 'span', text: `En ${settings.siteTitle} colaboramos con empresas que valoran el talento, la diversidad y el crecimiento profesional. Aquí encontrarás nuestras oportunidades laborales activas, seleccionadas cuidadosamente para asegurar un buen encaje tanto profesional como humano.`}]}] as PortableTextBlock[],
+    subheadline: [{_type: 'block', children: [{_type: 'span', text: `En ${settings.siteTitle} colaboramos con empresas que valoran el talento, la diversidad y el crecimiento profesional. Aquí encontrarás nuestras oportunidades laborales activas, seleccionadas cuidadosamente para asegurar un buen encaje tanto profesional como humano.`}]}],
     staticImageSrc: jobOffersImage.src,
   }
   const jobOffers: JobOfferType[] = await getJobOffers(6)
@@ -35,7 +34,7 @@ const JobOffersPage = async () => {
   const ctaData_ES = {
     _type: 'sectionCTA' as const,
     headline: '¿Quieres unirte a nuestro equipo?',
-    text: 'Responde a nuestras oportunidades laborales actuales. Si no encuentras una oferta que encaje con tu perfil, no dudes en ponerte en contacto con nosotros. Siempre estamos interesados en conocer talento excepcional.',
+    text: [{_type: 'block', children: [{_type: 'span', text: 'Responde a nuestras oportunidades laborales actuales. Si no encuentras una oferta que encaje con tu perfil, no dudes en ponerte en contacto con nosotros. Siempre estamos interesados en conocer talento excepcional.'}]}],
     primaryCta: { label: 'Contactar', href: '/contact' },
   }
   

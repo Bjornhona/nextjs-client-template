@@ -52,6 +52,7 @@ export interface NavItem {
   href: string
   isPrimary?: boolean
   children?: NavItem[]
+  onClick?: (e?: React.MouseEvent) => void
 }
 
 export interface Card {
@@ -64,14 +65,6 @@ export interface Card {
 export interface ListItem {
   title: string
   text: string
-}
-
-export interface ContactInfo {
-  companyName: string
-  contactPerson: string
-  phone: string
-  email: string
-  location: string
 }
 
 export interface JobOfferType {
