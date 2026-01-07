@@ -49,7 +49,7 @@ const Footer = ({ navigation }: { navigation: NavItem[]}) => {
           </h5>
           <nav className="flex flex-col gap-3">
             {legalNavigation.map(item => (
-              <NavLink key={item.href} item={item} variant="footer" />
+              <NavLink key={item.href} item={item} variant="footer" onClick={item.onClick || undefined} />
             ))}
           </nav>
         </div>
